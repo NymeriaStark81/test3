@@ -9,7 +9,7 @@ function Login() {
     async function submit(e) {
         try{
 
-            await axios.post("/",{
+            await axios.post("https://test3-sigma-lemon.vercel.app/",{
                 email,password
             })
             .then(res=>{
