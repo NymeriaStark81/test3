@@ -1,5 +1,6 @@
 import { useState } from "react"
 import axios from "axios"
+//import { response } from "express";
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -8,7 +9,7 @@ function Login() {
     async function submit(e) {
         try{
 
-            await axios.post("http://192.168.1.25:5173/",{
+            await axios.post("/",{
                 email,password
             })
             .then(res=>{
@@ -29,6 +30,36 @@ function Login() {
 
         }
     }
+    
+/*
+    async function submit(e) {
+        e.preventDefault();
+
+        try {
+            const response = await fetch("/", {
+                method: 'POST',
+                mode: 'no-cors',
+                body: JSON.stringify({ email: email, password: password })
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    if(data=="exist"){
+                        console.log('Logged in')
+                    }
+                    else if(data=="notexist"){
+                        alert("User have not sign up")
+                    }
+                    else if(data=="wrongpass"){
+                        alert("Wrong password")
+                    }
+                })
+        }
+        catch(e){
+            console.log(e);
+    
+        }
+    }
+*/      
 
     return (
         <div>
